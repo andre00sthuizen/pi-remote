@@ -58,8 +58,6 @@ public class RestApi {
 	public State switchToChromecast() throws Exception {
 		tvRemote.switchOn();
 		tvRemote.switchToChromecast();
-		hifiRemote.switchOn();
-		hifiRemote.switchToAux();
 		return state;
     }
 	

@@ -32,9 +32,13 @@ public class IrRemoteService implements InitializingBean, DisposableBean {
 	@Autowired
 	private State state;
 
+	@Autowired
+	private CecClientService cecClientService;
+
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		LOGGER.info("Initialising remote");
+		cecClientService.run();
 	}
 
 	@Override

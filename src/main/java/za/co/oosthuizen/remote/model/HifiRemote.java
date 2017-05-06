@@ -121,22 +121,23 @@ public class HifiRemote {
 	}
 
 	public void setVolume(int level) throws Exception {
-		LOGGER.info("Setting volume level to "+level);
 		if (!hifi.isPower()) {
 			return;
 		}
 		if (hifi.getVolume() > level) {
+			LOGGER.info("Setting volume level to "+level);
 			int adjustments = hifi.getVolume() - level;
 			for (int i=0; i<adjustments; i++) {
 				irRemoteService.sendIrCommand(REMOTE_NAME, KEY_VOLUMEDOWN);
 			}
 		} else if (hifi.getVolume() < level) {
+			LOGGER.info("Setting volume level to "+level);
 			int adjustments = level - hifi.getVolume();
 			for (int i=0; i<adjustments; i++) {
 				irRemoteService.sendIrCommand(REMOTE_NAME, KEY_VOLUMEUP);
 			}
 		} else {
-			LOGGER.info("Hifi volume already at level "+level);
+			LOGGER.debug("Hifi volume already at level "+level);
 		}
 		hifi.setVolume(level);
 	}

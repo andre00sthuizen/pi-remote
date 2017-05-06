@@ -1,5 +1,6 @@
 package za.co.oosthuizen.remote.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,7 +9,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Hifi {
-	
+
+	@JsonSerialize(using = BooleanSerializer.class)
 	private boolean power;
 	private int volume;
 	private Source source;

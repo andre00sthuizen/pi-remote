@@ -11,3 +11,6 @@ buildNumber.properties
 .project
 .factorypath
 .settings/
+.idea/
+.idea/uiDesigner.xml
+*.iml
